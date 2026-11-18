@@ -1,0 +1,306 @@
+<!doctype html>
+<!--
+  Version | Date       | Statut  | Rédigé par | Modifié par | Objet de la révision
+  v0.1    | 18/11/2026 | Ébauche | Claude     | Pons        | Reprise de mobilier-a-vendre.html (15/11) : photos externalisées, compteur, messages neutres, infos pratiques, balises de partage
+-->
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f3ed">
+  <title>Mobilier &amp; objets de maison à vendre, Lomé</title>
+  <meta name="description" content="Mobilier et décoration à vendre à Lomé pour cause de départ. 19 articles disponibles pour cause de départ : lits, armoires, bureaux, table à manger, pièces artisanales. Prix en FCFA, réservation par WhatsApp.">
+  <link rel="canonical" href="https://b329-lab.github.io/mobilier-a-vendre/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Mobilier à vendre, Lomé">
+  <meta property="og:title" content="Mobilier &amp; objets de maison à vendre, Lomé">
+  <meta property="og:description" content="19 articles disponibles pour cause de départ : lits, armoires, bureaux, table à manger, pièces artisanales. Prix en FCFA, réservation par WhatsApp.">
+  <meta property="og:url" content="https://b329-lab.github.io/mobilier-a-vendre/">
+  <meta property="og:image" content="https://b329-lab.github.io/mobilier-a-vendre/img/apercu.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23365c45'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23f6f3ed' font-family='Georgia,serif'%3EM%3C/text%3E%3C/svg%3E">
+  <style>
+    :root { --ink:#262820; --muted:#74756b; --paper:#f6f3ed; --card:#fffefa; --line:#e7e1d6; --green:#365c45; --green-dark:#294936; --gold:#bf9b62; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; }
+    .wrap { width:min(1160px, calc(100% - 40px)); margin:0 auto; }
+    header { padding:58px 0 36px; border-bottom:1px solid var(--line); }
+    .eyebrow { text-transform:uppercase; letter-spacing:.16em; color:var(--green); font-size:11px; font-weight:750; }
+    h1 { font-family:Georgia, "Times New Roman", serif; font-size:clamp(38px, 6vw, 68px); line-height:1.02; letter-spacing:-.04em; font-weight:500; margin:15px 0 14px; }
+    .intro { color:var(--muted); max-width:560px; line-height:1.65; font-size:16px; margin:0; }
+    .contact { display:flex; align-items:center; justify-content:space-between; gap:20px; margin-top:30px; padding:17px 20px; border:1px solid var(--line); border-radius:14px; background:rgba(255,254,250,.7); }
+    .contact-label { display:block; color:var(--muted); font-size:12px; margin-bottom:4px; }
+    .contact a { color:var(--ink); font-weight:700; text-decoration:none; letter-spacing:.02em; }
+    .contact-note { color:var(--muted); font-size:13px; }
+    .infos { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; margin-top:16px; }
+    .info { padding:14px 16px; border:1px solid var(--line); border-radius:12px; background:rgba(255,254,250,.7); }
+    .info b { display:block; font-size:11px; text-transform:uppercase; letter-spacing:.1em; color:var(--green); margin-bottom:5px; }
+    .info span { font-size:13px; color:var(--ink); line-height:1.5; }
+    main { padding:32px 0 72px; }
+    .section-head { display:flex; justify-content:space-between; align-items:end; margin-bottom:18px; gap:16px; }
+    .section-head h2 { font:500 27px Georgia, "Times New Roman", serif; margin:0; }
+    .count { color:var(--muted); font-size:13px; text-align:right; }
+    .grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
+    .card { overflow:hidden; background:var(--card); border:1px solid var(--line); border-radius:16px; box-shadow:0 7px 24px rgba(39,37,28,.035); }
+    .photo { height:245px; padding:15px; position:relative; display:flex; justify-content:center; align-items:center; gap:7px; background:#eeeae2; }
+    .photo img { display:block; width:100%; height:100%; min-width:0; object-fit:contain; }
+    .photo-2 img { width:50%; }
+    .photo-3 img { width:33%; }
+    .availability { position:absolute; top:12px; left:12px; padding:7px 10px; border-radius:99px; background:rgba(255,254,250,.94); color:var(--green); font-size:10px; letter-spacing:.03em; font-weight:750; }
+    .badge-date { color:#725222; }
+    .badge-sold { color:#8b3f35; background:#fff6f3; }
+    .photo-sold img { filter:grayscale(.75); opacity:.8; }
+    .card-body { padding:17px 18px 18px; }
+    .card-top { display:flex; justify-content:space-between; align-items:center; gap:10px; }
+    .ref { color:var(--muted); font-size:11px; letter-spacing:.1em; text-transform:uppercase; }
+    .price { font-size:17px; font-weight:750; white-space:nowrap; }
+    .price small { font-size:10px; font-weight:650; color:var(--muted); }
+    .card h3 { font:500 22px Georgia, "Times New Roman", serif; margin:10px 0 4px; }
+    .detail { color:var(--muted); font-size:13px; min-height:20px; margin:0 0 17px; }
+    .reserve { display:flex; justify-content:space-between; align-items:center; text-decoration:none; color:white; background:var(--green); border-radius:9px; padding:12px 14px; font-size:13px; font-weight:700; transition:background .15s, transform .15s; }
+    .reserve:hover { background:var(--green-dark); transform:translateY(-1px); }
+    .sold-button { background:#e9e3da; color:#735f52; cursor:default; }
+    .sold-section { margin-top:56px; padding-top:32px; border-top:1px solid var(--line); }
+    .sold-section .section-head h2 { color:var(--muted); font-size:22px; }
+    footer { padding:20px 0 32px; border-top:1px solid var(--line); color:var(--muted); font-size:12px; line-height:1.6; }
+    @media (max-width:850px) { .grid { grid-template-columns:repeat(2,minmax(0,1fr)); } .infos { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:560px) { .wrap { width:min(100% - 28px, 440px); } header { padding-top:40px; } .grid { grid-template-columns:1fr; gap:14px; } .infos { grid-template-columns:1fr; gap:10px; } .photo { height:270px; } .contact { align-items:flex-start; flex-direction:column; gap:10px; } .contact-note { font-size:12px; } }
+  </style>
+</head>
+<body>
+  <header><div class="wrap">
+    <div class="eyebrow">Mobilier &amp; objets de maison · Lomé</div>
+    <h1>De belles pièces<br>prêtes pour leur prochaine maison.</h1>
+    <p class="intro">Mobilier et décoration à vendre pour cause de départ. La disponibilité de chaque article est indiquée sur sa fiche. Choisissez un article et contactez-nous directement sur WhatsApp pour le réserver.</p>
+    <div class="contact"><div><span class="contact-label">Téléphone local</span><a href="tel:+22893826288">+228 93 82 62 88</a></div><div class="contact-note">Pour réserver, utilisez le bouton WhatsApp de l’article choisi.</div></div>
+    <div class="infos">
+      <div class="info"><b>Où</b><span>Lomé, quartier Kodjoviakopé. Adresse exacte communiquée à la réservation.</span></div>
+      <div class="info"><b>Retrait</b><span>À venir chercher sur place, aux dates de disponibilité. Pas de livraison.</span></div>
+      <div class="info"><b>État</b><span>Meubles de famille, utilisés et entretenus. Les photos sont celles des pièces vendues.</span></div>
+      <div class="info"><b>Prix</b><span>Prix affichés en FCFA. Une remise se discute pour plusieurs articles.</span></div>
+    </div>
+  </div></header>
+  <main class="wrap">
+    <div class="section-head"><h2>Les articles disponibles</h2><span class="count">19 articles · 12 de suite, 7 à partir du 16/12/2026 · prix en FCFA</span></div>
+    <section class="grid" aria-label="Articles disponibles">
+<article class="card" id="a01">
+  <div class="photo photo-1"><img src="img/a01-1.jpg" alt="Lit Montessori + matelas" loading="lazy"><span class="availability">Disponible de suite</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A01</span><span class="price">65 000<small> FCFA</small></span></div>
+    <h3>Lit Montessori + matelas</h3>
+    <p class="detail">175 × 114 cm</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20du%20lit%20Montessori%20avec%20matelas%20%28r%C3%A9f.%20A01%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a02">
+  <div class="photo photo-1"><img src="img/a02-1.jpg" alt="Coiffeuse vintage" loading="lazy"><span class="availability">Disponible de suite</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A02</span><span class="price">45 000<small> FCFA</small></span></div>
+    <h3>Coiffeuse vintage</h3>
+    <p class="detail">125 × 48 cm</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20de%20la%20coiffeuse%20vintage%20%28r%C3%A9f.%20A02%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a03">
+  <div class="photo photo-1"><img src="img/a03-1.jpg" alt="Commode en bois massif" loading="lazy"><span class="availability">Disponible de suite</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A03</span><span class="price">45 000<small> FCFA</small></span></div>
+    <h3>Commode en bois massif</h3>
+    <p class="detail">84 × 54 cm</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20de%20la%20commode%20en%20bois%20massif%20%28r%C3%A9f.%20A03%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a06">
+  <div class="photo photo-2"><img src="img/a06-1.jpg" alt="Armoire 2 portes" loading="lazy"><img src="img/a06-2.jpg" alt="Armoire 2 portes" loading="lazy"><span class="availability">Disponible de suite</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A06</span><span class="price">65 000<small> FCFA</small></span></div>
+    <h3>Armoire 2 portes</h3>
+    <p class="detail">190 × 54 cm</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20de%20l%E2%80%99armoire%202%20portes%20%28r%C3%A9f.%20A06%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a08">
+  <div class="photo photo-1"><img src="img/a08-1.jpg" alt="Meuble TV" loading="lazy"><span class="availability">Disponible de suite</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A08</span><span class="price">40 000<small> FCFA</small></span></div>
+    <h3>Meuble TV</h3>
+    <p class="detail">235 × 55 cm</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20du%20meuble%20TV%20%28r%C3%A9f.%20A08%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a10">
+  <div class="photo photo-1"><img src="img/a10-1.jpg" alt="Étagères" loading="lazy"><span class="availability">Disponible de suite</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A10</span><span class="price">25 000<small> FCFA le lot</small></span></div>
+    <h3>Étagères</h3>
+    <p class="detail">Lot de 2 · 119 × 54 cm et 80 × 54 cm</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20des%20deux%20%C3%A9tag%C3%A8res%20%28r%C3%A9f.%20A10%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a14">
+  <div class="photo photo-1"><img src="img/a14-1.jpg" alt="Lit princesse 1 place + matelas" loading="lazy"><span class="availability">Disponible de suite</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A14</span><span class="price">90 000<small> FCFA</small></span></div>
+    <h3>Lit princesse 1 place + matelas</h3>
+    <p class="detail">&nbsp;</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20du%20lit%20princesse%201%20place%20avec%20matelas%20%28r%C3%A9f.%20A14%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a16">
+  <div class="photo photo-1"><img src="img/a16-1.jpg" alt="Canapé en bois sculpté" loading="lazy"><span class="availability">Disponible de suite</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A16</span><span class="price">70 000<small> FCFA</small></span></div>
+    <h3>Canapé en bois sculpté</h3>
+    <p class="detail">Vendu sans coussin</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20du%20canap%C3%A9%20en%20bois%20sculpt%C3%A9%20%28r%C3%A9f.%20A16%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a17">
+  <div class="photo photo-1"><img src="img/a17-1.jpg" alt="Miroir artisanal" loading="lazy"><span class="availability">Disponible de suite</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A17</span><span class="price">15 000<small> FCFA</small></span></div>
+    <h3>Miroir artisanal</h3>
+    <p class="detail">&nbsp;</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20du%20miroir%20artisanal%20%28r%C3%A9f.%20A17%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a18">
+  <div class="photo photo-3"><img src="img/a18-1.jpg" alt="Bureau + chaise" loading="lazy"><img src="img/a18-2.jpg" alt="Bureau + chaise" loading="lazy"><img src="img/a18-3.jpg" alt="Bureau + chaise" loading="lazy"><span class="availability">Disponible de suite</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A18</span><span class="price">35 000<small> FCFA l’unité</small></span></div>
+    <h3>Bureau + chaise</h3>
+    <p class="detail">3 ensembles disponibles · 150 × 50 cm</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20d%E2%80%99un%20bureau%20avec%20chaise%20%28r%C3%A9f.%20A18%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a19">
+  <div class="photo photo-1"><img src="img/a19-1.jpg" alt="Table console en bois massif" loading="lazy"><span class="availability">Disponible de suite</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A19</span><span class="price">45 000<small> FCFA</small></span></div>
+    <h3>Table console en bois massif</h3>
+    <p class="detail">175 × 45 cm</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20de%20la%20table%20console%20en%20bois%20massif%20%28r%C3%A9f.%20A19%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a21">
+  <div class="photo photo-1"><img src="img/a21-1.jpg" alt="Lampadaire artisanal en bambou" loading="lazy"><span class="availability">Disponible de suite</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A21</span><span class="price">60 000<small> FCFA</small></span></div>
+    <h3>Lampadaire artisanal en bambou</h3>
+    <p class="detail">&nbsp;</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20du%20lampadaire%20artisanal%20en%20bambou%20%28r%C3%A9f.%20A21%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a11">
+  <div class="photo photo-2"><img src="img/a11-1.jpg" alt="Lit superposé triple + 2 matelas" loading="lazy"><img src="img/a11-2.jpg" alt="Lit superposé triple + 2 matelas" loading="lazy"><span class="availability badge-date">Disponible le 16/12/2026</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A11</span><span class="price">180 000<small> FCFA</small></span></div>
+    <h3>Lit superposé triple + 2 matelas</h3>
+    <p class="detail">&nbsp;</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20du%20lit%20superpos%C3%A9%20triple%20avec%20ses%20deux%20matelas%20%28r%C3%A9f.%20A11%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a12">
+  <div class="photo photo-1"><img src="img/a12-1.jpg" alt="Lit 2 places + matelas" loading="lazy"><span class="availability badge-date">Disponible le 16/12/2026</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A12</span><span class="price">130 000<small> FCFA</small></span></div>
+    <h3>Lit 2 places + matelas</h3>
+    <p class="detail">&nbsp;</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20du%20lit%202%20places%20avec%20matelas%20%28r%C3%A9f.%20A12%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a13">
+  <div class="photo photo-1"><img src="img/a13-1.jpg" alt="Lit bateau 1 place + matelas" loading="lazy"><span class="availability badge-date">Disponible le 16/12/2026</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A13</span><span class="price">90 000<small> FCFA</small></span></div>
+    <h3>Lit bateau 1 place + matelas</h3>
+    <p class="detail">&nbsp;</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20du%20lit%20bateau%201%20place%20avec%20matelas%20%28r%C3%A9f.%20A13%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a15">
+  <div class="photo photo-1"><img src="img/a15-1.jpg" alt="Lit 3 places + matelas" loading="lazy"><span class="availability badge-date">Disponible le 16/12/2026</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A15</span><span class="price">70 000<small> FCFA</small></span></div>
+    <h3>Lit 3 places + matelas</h3>
+    <p class="detail">193 × 180 cm</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20du%20lit%203%20places%20avec%20matelas%20%28r%C3%A9f.%20A15%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a20">
+  <div class="photo photo-1"><img src="img/a20-1.jpg" alt="Table à manger + 6 chaises" loading="lazy"><span class="availability badge-date">Disponible le 16/12/2026</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A20</span><span class="price">100 000<small> FCFA</small></span></div>
+    <h3>Table à manger + 6 chaises</h3>
+    <p class="detail">180 × 90 cm</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20de%20la%20table%20%C3%A0%20manger%20avec%20ses%206%20chaises%20%28r%C3%A9f.%20A20%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a22">
+  <div class="photo photo-1"><img src="img/a22-1.jpg" alt="Bureau + chaise" loading="lazy"><span class="availability badge-date">Disponible le 16/12/2026</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A22</span><span class="price">60 000<small> FCFA</small></span></div>
+    <h3>Bureau + chaise</h3>
+    <p class="detail">140 × 80 cm</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20du%20bureau%20avec%20chaise%20%28r%C3%A9f.%20A22%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+<article class="card" id="a23">
+  <div class="photo photo-1"><img src="img/a23-1.jpg" alt="Meuble de rangement" loading="lazy"><span class="availability badge-date">Disponible le 16/12/2026</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A23</span><span class="price">35 000<small> FCFA</small></span></div>
+    <h3>Meuble de rangement</h3>
+    <p class="detail">119 × 40 cm</p>
+    <a class="reserve" href="https://wa.me/33767857959?text=Bonjour%2C%20je%20vous%20contacte%20au%20sujet%20du%20meuble%20de%20rangement%20%28r%C3%A9f.%20A23%29.%20Est-ce%20toujours%20disponible%20%3F" target="_blank" rel="noopener">Réserver sur WhatsApp <span aria-hidden="true">↗</span></a>
+  </div>
+</article>
+    </section>
+    <div class="sold-section">
+      <div class="section-head"><h2>Déjà vendus</h2><span class="count">4 articles</span></div>
+      <section class="grid" aria-label="Articles vendus">
+<article class="card" id="a04">
+  <div class="photo photo-1 photo-sold"><img src="img/a04-1.jpg" alt="Lampe en calebasse" loading="lazy"><span class="availability badge-sold">Vendu</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A04</span><span class="price">3 500<small> FCFA</small></span></div>
+    <h3>Lampe en calebasse</h3>
+    <p class="detail">&nbsp;</p>
+    <span class="reserve sold-button">Article vendu</span>
+  </div>
+</article>
+<article class="card" id="a05">
+  <div class="photo photo-2 photo-sold"><img src="img/a05-1.jpg" alt="Tables de chevet" loading="lazy"><img src="img/a05-2.jpg" alt="Tables de chevet" loading="lazy"><span class="availability badge-sold">Vendu</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A05</span><span class="price">10 000<small> FCFA l’unité</small></span></div>
+    <h3>Tables de chevet</h3>
+    <p class="detail">2 vendues</p>
+    <span class="reserve sold-button">Article vendu</span>
+  </div>
+</article>
+<article class="card" id="a07">
+  <div class="photo photo-1 photo-sold"><img src="img/a07-1.jpg" alt="Table console" loading="lazy"><span class="availability badge-sold">Vendu</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A07</span><span class="price">30 000<small> FCFA</small></span></div>
+    <h3>Table console</h3>
+    <p class="detail">110 × 40 cm</p>
+    <span class="reserve sold-button">Article vendu</span>
+  </div>
+</article>
+<article class="card" id="a09">
+  <div class="photo photo-1 photo-sold"><img src="img/a09-1.jpg" alt="Armoire" loading="lazy"><span class="availability badge-sold">Vendu</span></div>
+  <div class="card-body">
+    <div class="card-top"><span class="ref">Réf. A09</span><span class="price">65 000<small> FCFA</small></span></div>
+    <h3>Armoire</h3>
+    <p class="detail">110 × 46 cm</p>
+    <span class="reserve sold-button">Article vendu</span>
+  </div>
+</article>
+      </section>
+    </div>
+  </main>
+  <footer><div class="wrap">Mobilier à vendre, Lomé · Pour toute question, appelez le +228 93 82 62 88.<br>Mise à jour le 18/11/2026.</div></footer>
+</body>
+</html>
