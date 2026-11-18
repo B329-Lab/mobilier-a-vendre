@@ -34,13 +34,8 @@ ITEMS = [
  ('a22','Bureau + chaise',60000,'140 × 80 cm',DATE,1,'le bureau avec chaise',''),
  ('a23','Meuble de rangement',35000,'119 × 40 cm',DATE,1,'le meuble de rangement',''),
  ('a26','Meuble d’appoint',10000,'49 × 42 cm',DATE,1,'le meuble d’appoint',''),
- # Vendus
- ('a06','Armoire 2 portes',65000,'190 × 54 cm',SOLD,2,'',''),
- ('a10','Étagères',25000,'Lot de 2 · 119 × 54 cm et 80 × 54 cm',SOLD,1,'','le lot'),
- ('a04','Lampe en calebasse',3500,'',SOLD,1,'',''),
- ('a05','Tables de chevet',10000,'2 vendues',SOLD,2,'','l’unité'),
- ('a07','Table console',30000,'110 × 40 cm',SOLD,1,'',''),
- ('a09','Armoire',65000,'110 × 46 cm',SOLD,1,'',''),
+ # Vendus : retirés de la page à la demande de Pons (18/11). Pour afficher un article vendu, le passer en SOLD ici.
+ # Déjà vendus et retirés : A04 lampe en calebasse, A05 tables de chevet, A06 armoire 2 portes, A07 table console, A09 armoire, A10 étagères.
 ]
 WA = '33767857959'
 
@@ -136,12 +131,19 @@ CSS = '''
 
 FAVICON = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23365c45'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='%23f6f3ed' font-family='Georgia,serif'%3EM%3C/text%3E%3C/svg%3E"
 
+SOLD_HTML = '' if not sold else f'''    <div class="sold-section">
+      <div class="section-head"><h2>Déjà vendus</h2><span class="count">{len(sold)} articles</span></div>
+      <section class="grid" aria-label="Articles vendus">
+{''.join(card(i) for i in sold)}      </section>
+    </div>
+'''
+
 desc = f'{len(avail)} articles disponibles pour cause de départ : lits, armoires, bureaux, table à manger, pièces artisanales. Prix en FCFA, réservation par WhatsApp.'
 
 page = f'''<!doctype html>
 <!--
   Version | Date       | Statut  | Rédigé par | Modifié par | Objet de la révision
-  v0.2    | 18/11/2026 | Ébauche | Claude     | Pons        | Alignement sur la liste « à vendre.docx » du 17/11 : prix, dates (15/12), 8 articles ajoutés, A06 et A10 passés en vendus, vélo à 200 000
+  v0.3    | 18/11/2026 | Ébauche | Claude     | Pons        | Retrait des articles vendus de la page, visuels de partage Facebook dans partage/
 -->
 <html lang="fr">
 <head>
@@ -181,12 +183,7 @@ page = f'''<!doctype html>
     <div class="section-head"><h2>Les articles disponibles</h2><span class="count">{len(avail)} articles · {n_now} de suite, {n_date} à partir du {DATE} · prix en FCFA</span></div>
     <section class="grid" aria-label="Articles disponibles">
 {''.join(card(i) for i in avail)}    </section>
-    <div class="sold-section">
-      <div class="section-head"><h2>Déjà vendus</h2><span class="count">{len(sold)} articles</span></div>
-      <section class="grid" aria-label="Articles vendus">
-{''.join(card(i) for i in sold)}      </section>
-    </div>
-  </main>
+{SOLD_HTML}  </main>
   <footer><div class="wrap">Mobilier à vendre, Lomé · Pour toute question, appelez le +228 93 82 62 88.<br>Mise à jour le 18/11/2026.</div></footer>
 </body>
 </html>
