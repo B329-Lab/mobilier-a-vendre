@@ -3,28 +3,40 @@ import html, urllib.parse
 OUT = 'C:/Users/dumes/Downloads/mobilier-a-vendre/index.html'
 BASE = 'https://b329-lab.github.io/mobilier-a-vendre/'
 
-NOW = 'now'; DATE = '16/12/2026'; SOLD = 'sold'
+NOW = 'now'; DATE = '15/12/2026'; SOLD = 'sold'
+# Source de référence : « à vendre.docx » du 17/11/2026 (vélo ramené à 200 000 le 18/11).
 # (id, titre, prix, détail, dispo, nb photos, libellé pour le message WhatsApp, précision prix)
 ITEMS = [
- ('a01','Lit Montessori + matelas',65000,'175 × 114 cm',NOW,1,'le lit Montessori avec matelas',''),
+ # Disponibles de suite
+ ('a13','Lit bateau 1 place + matelas',100000,'',NOW,1,'le lit bateau 1 place avec matelas',''),
+ ('a14','Lit princesse 1 place + matelas',100000,'',NOW,1,'le lit princesse 1 place avec matelas',''),
+ ('a16','Canapé en bois sculpté',70000,'Vendu sans coussin',NOW,1,'le canapé en bois sculpté',''),
  ('a02','Coiffeuse vintage',45000,'125 × 48 cm',NOW,1,'la coiffeuse vintage',''),
  ('a03','Commode en bois massif',45000,'84 × 54 cm',NOW,1,'la commode en bois massif',''),
- ('a06','Armoire 2 portes',65000,'190 × 54 cm',NOW,2,'l’armoire 2 portes',''),
- ('a08','Meuble TV',40000,'235 × 55 cm',NOW,1,'le meuble TV',''),
- ('a10','Étagères',25000,'Lot de 2 · 119 × 54 cm et 80 × 54 cm',NOW,1,'les deux étagères','le lot'),
- ('a14','Lit princesse 1 place + matelas',90000,'',NOW,1,'le lit princesse 1 place avec matelas',''),
- ('a16','Canapé en bois sculpté',70000,'Vendu sans coussin',NOW,1,'le canapé en bois sculpté',''),
  ('a17','Miroir artisanal',15000,'',NOW,1,'le miroir artisanal',''),
- ('a18','Bureau + chaise',35000,'3 ensembles disponibles · 150 × 50 cm',NOW,3,'un bureau avec chaise','l’unité'),
+ ('a18','Bureau + chaise',35000,'2 ensembles disponibles · 150 × 50 cm',NOW,2,'un bureau avec chaise','l’unité'),
  ('a19','Table console en bois massif',45000,'175 × 45 cm',NOW,1,'la table console en bois massif',''),
+ ('a08','Meuble TV',40000,'235 × 55 cm',NOW,1,'le meuble TV',''),
  ('a21','Lampadaire artisanal en bambou',60000,'',NOW,1,'le lampadaire artisanal en bambou',''),
+ ('a27','Chargeur universel',5000,'',NOW,1,'le chargeur universel',''),
+ ('a28','Extracteur de jus SilverCrest',10000,'',NOW,1,'l’extracteur de jus SilverCrest',''),
+ ('a29','Yaourtière 7 pots',10000,'',NOW,1,'la yaourtière 7 pots',''),
+ ('a30','Vélo Fluide',200000,'',NOW,1,'le vélo Fluide',''),
+ ('a31','Machine à coudre à pédale et électrique',130000,'',NOW,1,'la machine à coudre',''),
+ # Disponibles à partir du 15/12/2026
  ('a11','Lit superposé triple + 2 matelas',180000,'',DATE,2,'le lit superposé triple avec ses deux matelas',''),
- ('a12','Lit 2 places + matelas',130000,'',DATE,1,'le lit 2 places avec matelas',''),
- ('a13','Lit bateau 1 place + matelas',90000,'',DATE,1,'le lit bateau 1 place avec matelas',''),
- ('a15','Lit 3 places + matelas',70000,'193 × 180 cm',DATE,1,'le lit 3 places avec matelas',''),
- ('a20','Table à manger + 6 chaises',100000,'180 × 90 cm',DATE,1,'la table à manger avec ses 6 chaises',''),
+ ('a12','Lit 2 places + matelas',150000,'',DATE,1,'le lit 2 places avec matelas',''),
+ ('a01','Lit Montessori + matelas',65000,'175 × 114 cm',DATE,1,'le lit Montessori avec matelas',''),
+ ('a15','Lit 3 places + matelas',80000,'193 × 180 cm',DATE,1,'le lit 3 places avec matelas',''),
+ ('a20','Table à manger + 6 chaises',130000,'180 × 90 cm',DATE,1,'la table à manger avec ses 6 chaises',''),
+ ('a25','Table à manger',100000,'180 × 80 cm',DATE,1,'la table à manger 180 × 80 cm',''),
+ ('a24','Canapé de jardin',120000,'',DATE,1,'le canapé de jardin',''),
  ('a22','Bureau + chaise',60000,'140 × 80 cm',DATE,1,'le bureau avec chaise',''),
  ('a23','Meuble de rangement',35000,'119 × 40 cm',DATE,1,'le meuble de rangement',''),
+ ('a26','Meuble d’appoint',10000,'49 × 42 cm',DATE,1,'le meuble d’appoint',''),
+ # Vendus
+ ('a06','Armoire 2 portes',65000,'190 × 54 cm',SOLD,2,'',''),
+ ('a10','Étagères',25000,'Lot de 2 · 119 × 54 cm et 80 × 54 cm',SOLD,1,'','le lot'),
  ('a04','Lampe en calebasse',3500,'',SOLD,1,'',''),
  ('a05','Tables de chevet',10000,'2 vendues',SOLD,2,'','l’unité'),
  ('a07','Table console',30000,'110 × 40 cm',SOLD,1,'',''),
@@ -129,7 +141,7 @@ desc = f'{len(avail)} articles disponibles pour cause de départ : lits, armoire
 page = f'''<!doctype html>
 <!--
   Version | Date       | Statut  | Rédigé par | Modifié par | Objet de la révision
-  v0.1    | 18/11/2026 | Ébauche | Claude     | Pons        | Reprise de mobilier-a-vendre.html (15/11) : photos externalisées, compteur, messages neutres, infos pratiques, balises de partage
+  v0.2    | 18/11/2026 | Ébauche | Claude     | Pons        | Alignement sur la liste « à vendre.docx » du 17/11 : prix, dates (15/12), 8 articles ajoutés, A06 et A10 passés en vendus, vélo à 200 000
 -->
 <html lang="fr">
 <head>
